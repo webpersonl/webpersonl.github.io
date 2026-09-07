@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>优质TG号购买平台|安全可靠的TG号购买服务推荐</title>
+    <meta name="keywords" content="TG号购买,快速安全,优惠多">
+    <meta name="description" content="在我们的Telegram账号中，您可以轻松购买各种优质资源、产品和服务。无论是最新的数字商品、独家内容、还是实用的生活工具，我们都能为您提供丰富的选择。操作简便，只需关注我们的TG频道或加入我们的群组，即可获取详细的购买信息和实时的优惠活动。我们保证所有交易过程安全可靠，支持多种支付方式，让您在放心的环境中迅速完成购买。我们的客户服务团队随时待命，解答您的疑问，协助您完成订单。加入我们，享受一站式的购物体验，获得高性价比的优质资源，让您的生活和工作更加便捷高效。未来，我们将不断为您带来更多惊喜和福利，期待您的加入与支持！">
+    <meta name="robots" content="index,follow">
+    <meta name="applicable-device" content="pc,mobile">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif}
+        :root{
+            --main-color:#0a499d;/* 深蓝主色 */
+            --light-color:#e8f0ff;/* 浅蓝辅助色 */
+            --text-gray:#666;--white:#fff;
+            --shadow:0 2px 8px rgba(10,73,157,0.1);
+            --highlight-color:#0078d4;/* 醒目按钮色 */
+            scroll-behavior:smooth;
+        }
+        body{background:var(--light-color);color:#333;-webkit-tap-highlight-color:transparent}
+        .container{display:flex;min-height:100vh;flex-direction:row-reverse;/* 侧边栏右侧布局 */}
+        .nav-toggle{display:none;position:fixed;top:15px;left:15px;width:40px;height:40px;background:#fff;border-radius:8px;box-shadow:var(--shadow);z-index:1001;
+            /* 修复1：添加flex布局，确保汉堡按钮居中 */
+            display: flex;
+            align-items:center;
+            justify-content:center;
+            cursor: pointer;
+        }
+        .nav-toggle span{display:block;width:24px;height:2px;background:var(--main-color);position:relative}
+        .nav-toggle span:before,.nav-toggle span:after{content:"";position:absolute;width:24px;height:2px;background:var(--main-color);left:0}
+        .nav-toggle span:before{top:-8px}
+        .nav-toggle span:after{bottom:-8px}
+        .sidebar{width:220px;background:var(--white);box-shadow:var(--shadow);position:sticky;top:0;padding:40px 20px;flex:0 0 220px;display:flex;flex-direction:column;gap:60px;z-index:1000}
+        .sidebar .title{font-size:20px;font-weight:700;color:var(--main-color);text-align:center;border-bottom:2px solid var(--light-color);padding-bottom:15px}
+        .sidebar .nav-list{list-style:none;display:flex;flex-direction:column;gap:25px}
+        .sidebar .nav-list li{padding:12px 15px;border-radius:8px;cursor:pointer;transition:.3s}
+        .sidebar .nav-list li.active,.sidebar .nav-list li:hover{background:var(--light-color);color:var(--main-color);font-weight:500}
+        .main-content{flex:1;padding:50px 80px;overflow-y:auto}
+        .page-desc,.account-list,.core-advantage,.faq,.friend-link,.related-pages{scroll-margin-top:20px}
+        
+        /* 醒目购买按钮 */
+        .highlight-buy-btn-wrap{
+            width:100%;margin:40px 0 60px 0;
+            display:flex;justify-content:center;align-items:center;
+            padding:20px 0;
+            background:rgba(0, 120, 212, 0.05);
+            border-radius:12px;border:2px dashed var(--highlight-color);
+        }
+        .highlight-buy-btn{
+            display:inline-block;padding:20px 60px;
+            background:var(--highlight-color);color:white;
+            font-size:24px;font-weight:700;border-radius:50px;
+            text-decoration:none;box-shadow:0 6px 16px rgba(0, 120, 212, 0.4);
+            transition:all 0.3s ease;position:relative;overflow:hidden;
+        }
+        .highlight-buy-btn:hover{
+            background:#005a9e;transform:translateY(-5px);
+            box-shadow:0 8px 20px rgba(0, 120, 212, 0.6);
+        }
+        .highlight-buy-btn:after{content:"→";position:absolute;right:30px;top:50%;transform:translateY(-50%);font-size:20px;transition:all 0.3s ease;}
+        .highlight-buy-btn:hover:after{right:25px;}
+
+        .page-desc{margin-bottom:60px}
+        .page-desc h2{font-size:28px;color:var(--main-color);margin-bottom:15px}
+        .page-desc p{font-size:16px;color:var(--text-gray);line-height:1.8}
+        .section-title{font-size:22px;margin-bottom:30px;padding-left:10px;border-left:4px solid var(--main-color)}
+        .account-list{margin-bottom:80px}
+        .scroll-box{display:flex;overflow-x:auto;gap:30px;padding-bottom:20px;scrollbar-width:none;-ms-overflow-style:none}
+        .scroll-box::-webkit-scrollbar{display:none}
+        .account-card{
+            flex:0 0 280px;background:var(--white);
+            border-radius:16px;/* 圆角加大 */
+            box-shadow:var(--shadow);padding:30px 25px;
+            display:flex;flex-direction:column;gap:20px;
+            border-top:4px solid var(--main-color);/* 顶部边框 */
+        }
+        .account-card .card-title{font-size:18px;font-weight:700;color:var(--main-color)}
+        .account-card .card-desc{font-size:14px;color:var(--text-gray);line-height:1.6}
+        .account-card .card-tag{display:flex;gap:10px}
+        .account-card .card-tag span{font-size:12px;padding:4px 10px;background:var(--light-color);color:var(--main-color);border-radius:20px}
+        .account-card .card-price{font-size:24px;font-weight:700;color:var(--main-color)}
+        .buy-btn{width:100%;padding:12px 0;background:var(--main-color);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;margin-top:auto;text-align:center;text-decoration:none;display:block;transition:all 0.3s ease}
+        .buy-btn:hover{background:#083a7c;box-shadow:0 4px 12px rgba(10,73,157,0.3)}
+        .core-advantage{margin-bottom:80px}
+        .advantage-list{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between}
+        .advantage-item{width:calc(50% - 15px);background:var(--white);border-radius:12px;box-shadow:var(--shadow);padding:30px 25px}
+        .advantage-item h3{font-size:18px;color:var(--main-color);margin-bottom:15px}
+        .advantage-item p{font-size:14px;color:var(--text-gray);line-height:1.8}
+        .faq{margin-bottom:80px}
+        .faq-list{display:flex;flex-direction:column;gap:20px}
+        .faq-item{background:var(--white);border-radius:12px;box-shadow:var(--shadow);padding:25px 30px}
+        .faq-item h3{font-size:16px;font-weight:700;margin-bottom:10px;color:var(--main-color)}
+        .faq-item p{font-size:14px;color:var(--text-gray);line-height:1.8}
+        .friend-link{margin-bottom:50px}
+        .link-list{background:var(--white);border-radius:12px;box-shadow:var(--shadow);padding:30px 25px;display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+        .link-item{text-decoration:none;color:var(--text-gray);font-size:14px;padding:8px 15px;border-radius:6px}
+        .link-item:hover{background:var(--light-color);color:var(--main-color)}
+        
+        /* 关联页面导航 */
+        .related-pages{margin:60px 0 40px 0;padding:30px;background:var(--white);border-radius:12px;box-shadow:var(--shadow)}
+        .related-pages h2{font-size:20px;color:var(--main-color);margin-bottom:20px;border-bottom:1px solid var(--light-color);padding-bottom:10px}
+        .related-list{display:flex;flex-wrap:wrap;gap:15px}
+        .related-item{padding:8px 20px;background:var(--light-color);color:var(--main-color);border-radius:20px;text-decoration:none;transition:.3s}
+        .related-item:hover{background:var(--main-color);color:white}
+        .related-item.active{background:var(--main-color);color:white}
+
+        /* 修复2：优化移动端样式优先级，修复侧边栏显示/隐藏逻辑 */
+        @media (max-width:768px){
+            .nav-toggle{display:flex !important;}
+            .sidebar{position:fixed;right:0;top:0;height:100vh;transform:translateX(100%);transition:.3s;}
+            .sidebar.show{transform:translateX(0);}
+            .container{flex-direction:column;}
+            .main-content{padding:20px 15px;margin-top:60px;}
+            .highlight-buy-btn-wrap{margin:20px 0 40px 0;padding:15px 0;}
+            .highlight-buy-btn{padding:15px 40px;font-size:20px;}
+            .account-card{flex:0 0 calc(100% - 20px);min-width:280px;}
+            .advantage-item{width:100%;}
+            .link-list{justify-content:center;}
+            .page-desc h2{font-size:22px;}
+            .section-title{font-size:20px !important;}
+        }
+
+        /* 修复3：添加PC端隐藏汉堡按钮的样式 */
+        @media (min-width:769px){
+            .nav-toggle{display:none !important;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-toggle" id="navToggle"><span></span></div>
+        <aside class="sidebar" id="sidebar">
+            <h1 class="title">优质TG号购买平台|安全可靠的TG号购买服务推荐</h1>
+            <ul class="nav-list">
+                <li class="active" data-target="page-desc">首页</li>
+                <li data-target="account-list">TG号购买列表</li>
+                <li data-target="core-advantage">核心优势</li>
+                <li data-target="faq">常见问题</li>
+                <li data-target="friend-link">友情链接</li>
+                <li><a href="/tg.md">关联页面</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <section class="page-desc" id="page-desc">
+                <h2>优质TG号购买平台|安全可靠的TG号购买服务推荐</h2>
+                <p>专业TG号购买购买商务平台，提供企业级安全保障的TG号购买，全新号、老号、会员号齐全，极速交付，7×24小时专属售后，企业采购首选！</p>
+            </section>
+            <div class="highlight-buy-btn-wrap">
+                <a href="https://kkpp.us/" class="highlight-buy-btn" target="_blank">点击进入购买</a>
+            </div>
+            <section class="account-list" id="account-list">
+                <h2 class="section-title">TG号购买列表</h2>
+                <div class="scroll-box">
+                    <div class="account-card">
+                        <h3>TG纯净新号</h3>
+                        <p>全新注册，无任何使用记录，安全可靠</p>
+                        <div class="card-tag"><span>全新</span><span>安全</span></div>
+                        <div class="card-price">¥39</div>
+                        <a href="https://kkpp.us/" class="buy-btn" target="_blank">立即选购</a>
+                    </div>
+                    <div class="account-card">
+                        <h3>TG稳定老号</h3>
+                        <p>注册1年+，多重验证，安全稳定不封号</p>
+                        <div class="card-tag"><span>稳定</span><span>高信誉</span></div>
+                        <div class="card-price">¥89</div>
+                        <a href="https://kkpp.us/" class="buy-btn" target="_blank">立即选购</a>
+                    </div>
+                    <div class="account-card">
+                        <h3>TG高级会员账号</h3>
+                        <p>会员特权，无广告，全功能体验</p>
+                        <div class="card-tag"><span>会员</span><span>全功能</span></div>
+                        <div class="card-price">¥159</div>
+                        <a href="https://kkpp.us/" class="buy-btn" target="_blank">立即选购</a>
+                    </div>
+                    <div class="account-card">
+                        <h3>TG企业账号</h3>
+                        <p>团队使用，多端同步，专属客服对接</p>
+                        <div class="card-tag"><span>企业</span><span>专属</span></div>
+                        <div class="card-price">¥299</div>
+                        <a href="https://kkpp.us/" class="buy-btn" target="_blank">立即选购</a>
+                    </div>
+                </div>
+            </section>
+            <section class="core-advantage" id="core-advantage">
+                <h2 class="section-title">TG号购买购买核心优势</h2>
+                <div class="advantage-list">
+                    <div class="advantage-item">
+                        <h3>企业级安全保障</h3>
+                        <p>多重加密验证，专属传输通道，确保TG号购买安全无风险</p>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>极速交付</h3>
+                        <p>支付完成，立即获取TG号购买信息，无需等待</p>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>7×24专属客服</h3>
+                        <p>企业级客服团队，全天候解答TG号购买购买相关疑问</p>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>品质保证</h3>
+                        <p>人工审核+机器核验，双重保障TG号购买质量</p>
+                    </div>
+                </div>
+            </section>
+            <section class="faq" id="faq">
+                <h2 class="section-title">TG号购买购买常见问题</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>购买的TG号购买可以使用多久？</h3>
+                        <p>我们的TG号购买均为永久使用，购买后您可以一直使用，如遇账号异常问题，我们提供30天质保服务，质保期内可免费更换。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>TG号购买交付方式是怎样的？</h3>
+                        <p>支付完成后，TG号购买信息会立即显示在页面上，同时也会发送到您预留的邮箱/手机号，您可以随时查看和使用。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>TG号购买购买后可以退换吗？</h3>
+                        <p>TG号购买属于虚拟商品，一经售出概不退换。但如果账号存在质量问题（如无法登录、功能异常），我们提供30天质保，质保期内可免费更换。</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="friend-link" id="friend-link">
+                <h2 class="section-title">文章介绍</h2>
+                <div class="link-list">
+                      <h1 style="text-align:center;">【必看】秒杀全场！超值福利，限时特惠只在TG号购买！</h1>
+                                                     <p>在当今电商时代，抢购优惠已成为消费者的日常。这次，我们为大家带来一场令人心动的秒杀狂欢，只在TG平台限时发放超值福利和特惠商品。无论你是追求实用性还是追求性价比，这次活动都能满足你的需求。本文将详细介绍此次秒杀活动的亮点、参与方式、优惠商品范围以及购买技巧，帮助你轻松把握每次限时优惠的机遇，享受极致购物体验。</p>
+<h2 id='活动亮点'>活动亮点</h2>
+<p>本次秒杀活动以“必看”字样入门，确保每位消费者都能第一时间获取最实在的福利。活动期间，平台推出多款爆款商品，涵盖电子数码、家居生活、美妆护肤、服饰鞋包等多个品类。所有商品均享有最高折扣，有的甚至低至五折或更低，让你以最低价格购得心仪商品。此外，限时抢购的机制确保了购物的紧迫感，让消费者在最短时间内享受到最大优惠。</p>
+<h2 id='参与方式'>参与方式详解</h2>
+<p>用户只需关注TG官方账号，进入指定的秒杀页面，提前预约需抢购的商品即可。在秒杀开始的瞬间，点击“立即购买”按钮，即可快速完成订单。建议用户提前登录并确保支付信息完整，以免错失良机。此外，部分商品会设有库存限制，先到先得，建议保持页面不断刷新获取最新商品和优惠信息。</p>
+<h2 id='优惠商品介绍'>优惠商品范围</h2>
+<p>此次特惠主要集中在热销爆款和秒杀热门品。电子类中，手机、耳机、智能手表等价格低廉，品质有保障；家居用品则包括智能扫地机器人、厨电、床上用品等，提升生活品质；美妆产品涵盖知名品牌，限量赠品多多；服饰配件则有时尚潮流的鞋包和秋季新品，全面满足不同消费者的需求。</p>
+<h2 id='购物技巧与注意事项'>购物技巧建议</h2>
+<p>为了最大程度享受优惠，建议提前收藏秒杀商品页面，设定提醒时间，及时进入秒杀。这次活动高度限时，且商品有限，建议用户理性选择，避免冲动购物。同时，确保网络连接顺畅、支付通道稳定，以确保购买流程流畅顺利。把握好时间和地点，相信你一定能秒杀到心仪好物。</p>
+<p>总结来说，此次TG平台的限时秒杀活动，凭借超值福利和丰富商品种类，成为众多消费者的首选。只需关注官方渠道，把握秒秒瞬间，打好“战斗”第一仗，尽享实惠购物乐趣！别错过这次必看的优惠盛宴，赶紧行动起来吧！</p>
+                </div>
+            </section>
+
+
+
+            <section class="friend-link" id="friend-link">
+                <h2 class="section-title">友情链接</h2>
+                <div class="link-list">
+                    <a href="https://kkpp.us/" class="link-item" target="_blank">TG号购买交易平台</a>
+                    <a href="https://kktt.us/" class="link-item" target="_blank">TG号购买商城</a>
+                    <a href="https://hhkk.us/" class="link-item" target="_blank">安全TG号购买中心</a>
+                    <a href="https://www.jisiv.cn/" class="link-item" target="_blank">小火箭订阅续费购买</a>
+                </div>
+            </section>
+              <script>
+        // 修复4：兼容老旧浏览器的forEach方法，修复侧边栏交互逻辑
+        if (!NodeList.prototype.forEach) {
+            NodeList.prototype.forEach = function(callback, thisArg) {
+                thisArg = thisArg || window;
+                for (var i = 0; i < this.length; i++) {
+                    callback.call(thisArg, this[i], i, this);
+                }
+            };
+        }
+
+        function addEvent(el,type,fn){
+            if(el.addEventListener){
+                el.addEventListener(type,fn);
+            }else if(el.attachEvent){
+                el.attachEvent('on'+type,fn);
+            }else{
+                el['on'+type] = fn;
+            }
+        }
+        
+        function smoothScrollTo(id){
+            var t=document.getElementById(id);
+            if(t){
+                // 兼容不支持smooth滚动的浏览器
+                try {
+                    t.scrollIntoView({behavior:'smooth',block:'start'});
+                } catch(e) {
+                    var top = t.offsetTop;
+                    window.scrollTo({top: top, behavior: 'smooth'});
+                }
+            }
+        }
+        
+        var navToggle=document.getElementById('navToggle'),
+            sidebar=document.getElementById('sidebar');
+        
+        addEvent(navToggle,'click',function(){
+            sidebar.classList.toggle('show');
+            // 修复：点击后阻止事件冒泡，避免误触发
+            event.stopPropagation ? event.stopPropagation() : (event.cancelBubble = true);
+        });
+        
+        // 修复：点击页面空白处关闭侧边栏
+        addEvent(document,'click',function(){
+            if(sidebar.classList.contains('show')){
+                sidebar.classList.remove('show');
+            }
+        });
+        
+        // 修复：阻止侧边栏内点击事件冒泡
+        addEvent(sidebar,'click',function(event){
+            event.stopPropagation ? event.stopPropagation() : (event.cancelBubble = true);
+        });
+        
+        var items=document.querySelectorAll('.nav-list li');
+        items.forEach(function(i){
+            addEvent(i,'click',function(){
+                items.forEach(e=>e.classList.remove('active'));
+                this.classList.add('active');
+                smoothScrollTo(this.dataset.target);
+                sidebar.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
